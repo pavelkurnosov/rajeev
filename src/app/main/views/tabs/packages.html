@@ -1,0 +1,100 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <table class="table table-responsive table-hover">
+                <thead>
+                <tr bgcolor="#cee7ff">
+                    <th>Name</th>
+                    <th>Company</th>
+                    <th>Website</th>
+                    <th>Languages</th>
+                    <th>Countries</th>
+                    <th>Encryptions</th>
+                    <th>Satellites</th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-dblclick="vm.openModal(row.id)" ng-repeat="(key, row) in vm.tableData">
+                    <td>{{row.package_name}}</td>
+                    <td>{{row.company}}</td>
+                    <td>{{row.website}}</td>
+                    <td>{{row.languages}}</td>
+                    <td>{{row.countries}}</td>
+                    <td>{{row.encryptions}}</td>
+                    <td>{{row.satellites}}</td>
+                    <td class="controls-td">
+                        <a ng-click="vm.openModal(row.id)">Edit</a> /
+                        <a ng-click="vm.deleteData(row.id)">Delete</a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<script type="text/ng-template" id="packages_form.html">
+    <div class="modal-header">
+        <h3 class="modal-title" id="modal-title-data">Edit Package Infomation</h3>
+    </div>
+    <div class="modal-body" id="modal-body-data">
+        <form class="form-group">
+            <div class="row">
+                <div class="col-sm-6 col-md-6">
+                    <div class="form-group">
+                        <label for="package_name">Package name</label>
+                        <input type="text" ng-model="data.package_name" class="form-control" id="package_name" placeholder="Package name">
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-6">
+                    <div class="form-group">
+                        <label for="company">Company</label>
+                        <input type="text" ng-model="data.company" class="form-control" id="company" placeholder="Company">
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-6">
+                    <div class="form-group">
+                        <label for="website">Website</label>
+                        <input type="text" ng-model="data.website" class="form-control" id="website" placeholder="Website">
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-6">
+                    <div class="form-group">
+                        <label for="languages">Languages</label>
+                        <input type="text" ng-model="data.languages" class="form-control" id="languages" placeholder="Languages">
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-6">
+                    <div class="form-group">
+                        <label for="countries">Country</label>
+                        <input type="text" ng-model="data.countries" class="form-control" id="countries" list="list-countries">
+                        <datalist id="list-countries">
+                            <option ng-repeat="item in countries" value="{{item}}">
+                        </datalist>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-6">
+                    <div class="form-group">
+                        <label for="encryptions">Encryptions</label>
+                        <input type="text" ng-model="data.encryptions" class="form-control" id="encryptions" placeholder="Encryptions">
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-6">
+                    <div class="form-group">
+                        <label for="satellites">Satellites</label>
+                        <input type="text" ng-model="data.satellites" class="form-control" id="satellites" placeholder="Satellites">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <div class="form-group">
+                        <button class="btn btn-primary" ng-click="save()">Save</button>
+                        <button class="btn btn-default" ng-click="close()">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</script>

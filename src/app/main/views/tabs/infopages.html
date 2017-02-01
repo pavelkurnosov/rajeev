@@ -1,0 +1,57 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <table class="table table-responsive table-hover">
+                <thead>
+                <tr bgcolor="#cee7ff">
+                    <th>Company</th>
+                    <th>URL</th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-dblclick="vm.openModal(row.id)" ng-repeat="(key, row) in vm.tableData">
+                    <td>{{row.company}}</td>
+                    <td>{{row.url}}</td>
+                    <td class="controls-td">
+                        <a ng-click="vm.openModal(row.id)">Edit</a> /
+                        <a ng-click="vm.deleteData(row.id)">Delete</a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<script type="text/ng-template" id="infopages_form.html">
+    <div class="modal-header">
+        <h3 class="modal-title" id="modal-title-data">Edit Info Page</h3>
+    </div>
+    <div class="modal-body" id="modal-body-data">
+        <form class="form-group">
+            <div class="row">
+                <div class="col-sm-6 col-md-6">
+                    <div class="form-group">
+                        <label for="company">Company</label>
+                        <input type="text" ng-model="data.company" class="form-control" id="company" placeholder="Company">
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-6">
+                    <div class="form-group">
+                        <label for="url">URL</label>
+                        <input type="text" ng-model="data.url" class="form-control" id="url" placeholder="Company">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <div class="form-group">
+                        <button class="btn btn-primary" ng-click="save()">Save</button>
+                        <button class="btn btn-default" ng-click="close()">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</script>
