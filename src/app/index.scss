@@ -35,7 +35,7 @@ $icon-font-path: "../../bootstrap-sass/assets/fonts/bootstrap/";
 // endinjector
 
 body {
-  padding-top: 140px;
+  padding-top: 150px;
   position: relative;
 }
 
@@ -107,9 +107,66 @@ pre {
   }
   .nav-item {
     width: 33.33%;
-    border-top: 3px solid red;
-    &.active {
-      border-color: cyan;
+    border-top-width: 4px;
+    border-top-style: solid;
+    padding-top: 5px;
+    a {
+      color: black;
+      &:hover{
+        background: white;
+      }
+    }
+    &:nth-child(1) {
+      border-color: #ef5ca0;
+
+      &.active {
+        &:before {
+          content: "";
+          margin-left: calc(50% - 10px);
+          border-left: 10px solid transparent;
+          border-right: 10px solid transparent;
+          border-top: 10px solid #ef5ca0;
+        }
+        a {
+          color: #ef5ca0;
+          margin-top: -10px;
+          padding-top: 0;
+        }
+      }
+    }
+    &:nth-child(2) {
+      border-color: #04ccfc;
+      &.active {
+        &:before {
+          content: "";
+          margin-left: calc(50% - 10px);
+          border-left: 10px solid transparent;
+          border-right: 10px solid transparent;
+          border-top: 10px solid #04ccfc;
+        }
+        a {
+          color: #04ccfc;
+          margin-top: -10px;
+          padding-top: 0;
+        }
+      }
+    }
+    &:nth-child(3) {
+      border-color: #fe9200;
+      &.active {
+        &:before {
+          content: "";
+          margin-left: calc(50% - 10px);
+          border-left: 10px solid transparent;
+          border-right: 10px solid transparent;
+          border-top: 10px solid #fe9200;
+        }
+        a {
+          color: #fe9200;
+          margin-top: -10px;
+          padding-top: 0;
+        }
+      }
     }
 
     .nav-link {
@@ -118,7 +175,6 @@ pre {
       padding: 10px 0 10px 0;
       text-align: center;
       border: 0 !important;
-      //border-top: 2px solid red !important;
       border-radius: 0;
       &.active, &:focus {
         border: 0;
@@ -145,11 +201,47 @@ pre {
   &:hover, &:active {
     text-decoration: none;
   }
+
+  &.color1 {
+    border-color: #e3659b;
+    &.active {
+      color: white;
+      background: #e3659b;
+    }
+  }
+  &.color2 {
+    border-color: #7107a0;
+    &.active {
+      color: white;
+      background: #7107a0;
+    }
+  }
+  &.color3 {
+    border-color: #c35a23;
+    &.active {
+      color: white;
+      background: #c35a23;
+    }
+  }
+  &.color4 {
+    border-color: #f83555;
+    &.active {
+      color: white;
+      background: #f83555;
+    }
+  }
+  &.color5 {
+    border-color: #04ccfc;
+    &.active {
+      color: white;
+      background: #04ccfc;
+    }
+  }
 }
 
 .section-label {
   background: white;
-  width: 100px;
+  width: 120px;
   margin: auto;
   margin-top: -30px;
   margin-bottom: 10px;

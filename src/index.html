@@ -19,7 +19,7 @@
     <!-- endinject -->
     <!-- endbuild -->
 </head>
-<body>
+<body ng-controller="MainController">
 <!--[if lt IE 10]>
 <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
     your browser</a> to improve your experience.</p>
@@ -59,13 +59,19 @@
         <uib-tabset active="active">
             <uib-tab ng-repeat="tab in mainTabs"
                      index="$index"
-                     heading="{{tab.label}}" select="alert(3);">
+                     heading="{{tab.label}}">
+
+                <div ng-init="cate.actived = 0"></div>
                 <div class="categories">
                     <a ng-href="{{category.url}}"
-                       class="category-link"
-                       ng-repeat="category in tab.categories">{{category.title}}</a>
+                       class="category-link {{category.color}}"
+                       ng-class="{active: cate.actived == $index}"
+                       ng-click="cate.actived = $index"
+                       ng-repeat="category in tab.categories">
+                        {{category.title}}
+                    </a>
                 </div>
-                <!--<div ng-include="tab.templateUrl"></div>-->
+
             </uib-tab>
         </uib-tabset>
     </div>

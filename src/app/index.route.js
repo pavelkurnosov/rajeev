@@ -15,13 +15,13 @@
                 controllerAs: 'vm'
             })
             .state('tv-category', {
-                url: '/tv-category/:category',
+                url: '/tv-category/:categoryId',
                 templateUrl: 'app/views/tv-category.html',
                 controller: 'TvCategoryController',
                 controllerAs: 'vm'
             })
             .state('tv-content', {
-                url: '/tv-content',
+                url: '/tv-content/:contentId',
                 templateUrl: 'app/views/tv-content.html',
                 controller: 'TvContentController',
                 controllerAs: 'vm'

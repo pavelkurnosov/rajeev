@@ -16,9 +16,11 @@
                 title: "FITNESS TV",
                 color: "p",
                 items: [{
+                    id: 1,
                     thumb: "thumb1.jpg",
                     title: "Yoga"
                 }, {
+                    id: 2,
                     thumb: "thumb2.jpg",
                     title: "Meditation"
                 }]
@@ -27,9 +29,11 @@
                 title: "COOKING TV",
                 color: "p",
                 items: [{
+                    id: 3,
                     thumb: "thumb3.jpg",
                     title: "Chicago style Hot dog"
                 }, {
+                    id: 4,
                     thumb: "thumb4.jpg",
                     title: "Asian Shrimp soup"
                 }]
@@ -38,9 +42,11 @@
                 title: "GOSSIP TV",
                 color: "p",
                 items: [{
+                    id: 5,
                     thumb: "thumb5.jpg",
                     title: "Chicago style Hot dog"
                 }, {
+                    id: 6,
                     thumb: "thumb6.jpg",
                     title: "Asian Shrimp soup"
                 }]
