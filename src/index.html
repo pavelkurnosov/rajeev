@@ -2,7 +2,7 @@
 <html ng-app="app">
 <head>
     <meta charset="utf-8">
-    <title>app</title>
+    <title>NAJM</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
@@ -19,7 +19,7 @@
     <!-- endinject -->
     <!-- endbuild -->
 </head>
-<body ng-controller="MainController">
+<body ng-controller="MainController as vm">
 <!--[if lt IE 10]>
 <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
     your browser</a> to improve your experience.</p>
@@ -27,42 +27,43 @@
 
 <header role="banner" class="navbar navbar-fixed-top navbar-inverse">
     <div class="container">
-        <div class="navbar-header">
-            <button data-toggle="collapse-side"
-                    data-target=".side-collapse"
-                    data-target-2=".side-collapse-container"
-                    type="button"
+        <div class="navbar-header" ng-init="menu.visible=false">
+            <button type="button"
+                    ng-click="menu.visible = !menu.visible"
                     class="navbar-toggle pull-left">
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <div class="logo"></div>
+            <div class="logo" ng-click="menu.visible=false"></div>
         </div>
-        <div class="navbar-inverse side-collapse in">
+        <div class="navbar-inverse side-collapse {{!menu.visible ? 'in' : 'out'}}">
+            <div class="my-info">
+                <div class="avatar"></div>
+                <div class="account-title">MY ACCOUNT</div>
+            </div>
             <nav role="navigation" class="navbar-collapse">
-                <ul class="nav navbar-nav">
-                    <li><a href="#Home">My Account</a></li>
-                    <!--<hr>-->
-                    <li><a href="#Home">Home</a></li>
-                    <li><a href="#Home">Featured</a></li>
-                    <li><a href="#tv-home">TV Channels</a></li>
-                    <li><a href="#video-home">Videos</a></li>
-                    <li><a href="#game-home">Games</a></li>
-                    <li><a href="#Home">Favourites</a></li>
-                    <li><a href="#Home">Help</a></li>
-                    <li><a href="#Home">Feedback</a></li>
+
+                <ul class="nav navbar-nav" ng-click="menu.visible=false">
+                    <li><a href="#Home"><img src="./assets/images/home.png"> Home</a></li>
+                    <li><a href="#Home"><img src="./assets/images/featured.png"> Featured</a></li>
+                    <li><a href="#tv-home"><img src="./assets/images/tv_channels.png"> TV Channels</a></li>
+                    <li><a href="#video-home"><img src="./assets/images/videos.png"> Videos</a></li>
+                    <li><a href="#game-home"><img src="./assets/images/games.png"> Games</a></li>
+                    <li><a href="#Home"><img src="./assets/images/favourites.png"> Favourites</a></li>
+                    <li><a href="#Home"><img src="./assets/images/help.png"> Help</a></li>
+                    <li><a href="#Home"><img src="./assets/images/feedback.png"> Feedback</a></li>
                 </ul>
             </nav>
         </div>
 
-        <uib-tabset active="active">
+        <uib-tabset active="active" ng-click="menu.visible=false">
             <uib-tab ng-repeat="tab in mainTabs"
                      index="$index"
-                     heading="{{tab.label}}">
+                     heading="{{tab.label}}"
+                     select="vm.tabSelect($index);">
 
-                <div ng-init="cate.actived = 0"></div>
-                <div class="categories text-center">
+                <div class="categories text-center" ng-init="cate.actived = -1">
                     <a ng-href="{{category.url}}"
                        class="category-link {{category.color}}"
                        ng-class="{active: cate.actived == $index}"
@@ -77,7 +78,7 @@
     </div>
 
 </header>
-<div ui-view></div>
+<div ui-view ng-click="menu.visible=false"></div>
 
 <!-- build:js(src) scripts/vendor.js -->
 <!-- bower:js -->

@@ -34,13 +34,13 @@
                 controllerAs: 'vm'
             })
             .state('video-category', {
-                url: '/video-category',
+                url: '/video-category/:categoryId',
                 templateUrl: 'app/views/video-category.html',
                 controller: 'VideoCategoryController',
                 controllerAs: 'vm'
             })
             .state('video-content', {
-                url: '/video-content',
+                url: '/video-content/:contentId',
                 templateUrl: 'app/views/video-content.html',
                 controller: 'VideoContentController',
                 controllerAs: 'vm'
@@ -53,13 +53,13 @@
                 controllerAs: 'vm'
             })
             .state('game-category', {
-                url: '/game-category',
+                url: '/game-category/:categoryId',
                 templateUrl: 'app/views/game-category.html',
                 controller: 'GameCategoryController',
                 controllerAs: 'vm'
             })
             .state('game-content', {
-                url: '/game-content',
+                url: '/game-content/:contentId',
                 templateUrl: 'app/views/game-content.html',
                 controller: 'GameContentController',
                 controllerAs: 'vm'
