@@ -17,11 +17,11 @@
             }, {
                 title: "Cooking TV",
                 url: "#tv-category/2",
-                color: "color2"
+                color: "color3"
             }, {
                 title: "Gossip TV",
                 url: "#tv-category/3",
-                color: "color3"
+                color: "color2"
             }, {
                 title: "Travel TV",
                 url: "#tv-category/4",
@@ -33,7 +33,7 @@
             categories: [{
                 title: "Lifestyle",
                 url: "#video-category/1",
-                color: "color1"
+                color: "color5"
             }, {
                 title: "Kids",
                 url: "#video-category/2",

@@ -14,7 +14,7 @@
             categories: [{
                 id: 1,
                 title: "FITNESS TV",
-                color: "p",
+                color: "color1",
                 items: [{
                     id: 1,
                     thumb: "thumb1.jpg",
@@ -27,7 +27,7 @@
             }, {
                 id: 2,
                 title: "COOKING TV",
-                color: "p",
+                color: "color3",
                 items: [{
                     id: 3,
                     thumb: "thumb3.jpg",
@@ -40,7 +40,7 @@
             }, {
                 id: 3,
                 title: "GOSSIP TV",
-                color: "p",
+                color: "color2",
                 items: [{
                     id: 5,
                     thumb: "thumb5.jpg",
