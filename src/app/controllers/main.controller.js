@@ -16,6 +16,7 @@
             } else {
                 $state.go('game-home');
             }
+
         }
     }
 })();

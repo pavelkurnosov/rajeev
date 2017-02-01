@@ -5,7 +5,7 @@
         .run(runBlock);
 
     /** @ngInject */
-    function runBlock($rootScope) {
+    function runBlock($rootScope, $window) {
 
         var tabs = [{
             label: "TV CHANNELS",
@@ -15,13 +15,13 @@
                 url: "#tv-category/1",
                 color: "color1"
             }, {
-                title: "Cooking TV",
-                url: "#tv-category/2",
-                color: "color3"
-            }, {
                 title: "Gossip TV",
-                url: "#tv-category/3",
+                url: "#tv-category/2",
                 color: "color2"
+            }, {
+                title: "Cooking TV",
+                url: "#tv-category/3",
+                color: "color3"
             }, {
                 title: "Travel TV",
                 url: "#tv-category/4",
@@ -69,7 +69,12 @@
             }]
         }];
 
+
         $rootScope.mainTabs = tabs;
+
+        $rootScope.$on('$viewContentLoaded', function() {
+            $window.scrollTo(0, 0);
+        });
 
     }
 

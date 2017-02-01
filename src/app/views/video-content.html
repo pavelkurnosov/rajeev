@@ -1,18 +1,20 @@
 <div class="container">
     <div class="featured-label">FEATURED</div>
     <div class="embed-responsive embed-responsive-4by3">
-        <iframe class="embed-responsive-item" src="//www.youtube.com/embed/j5aIqSSVrdc"></iframe>
+        <iframe class="embed-responsive-item" src="//www.youtube.com/embed/K0ibBPhiaG0"></iframe>
     </div>
     <div class="video-title">{{vm.data.featuredVideoTitle}}</div>
 
-    <hr/>
-    <div class="section-label text-center">Related Videos</div>
+    <hr class="border-color3"/>
+    <div class="section-label text-center text-color3">
+        <span>Related Videos</span>
+    </div>
 
     <div class="container">
         <div class="row">
             <div class="col-xs-6 item" ng-repeat="item in vm.data.items">
                 <a href="#tv-content" class="box">
-                    <img class="img-responsive" ng-src="./assets/images/{{item.thumb}}">
+                    <img class="img-responsive" ng-src="./assets/images/video_{{item.thumb}}">
                     <div>{{item.title}}</div>
                 </a>
             </div>
