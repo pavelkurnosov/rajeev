@@ -59,7 +59,7 @@
         <uib-tabset active="active">
             <uib-tab ng-repeat="tab in mainTabs"
                      index="$index"
-                     heading="{{tab.label}}">
+                     heading="{{tab.label}}" select="alert(3);">
                 <div class="categories">
                     <a ng-href="{{category.url}}"
                        class="category-link"

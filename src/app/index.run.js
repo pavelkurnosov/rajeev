@@ -21,7 +21,7 @@
                 url: "#tv-category/3"
             }, {
                 title: "Travel TV",
-                url: "#tv-category/2"
+                url: "#tv-category/4"
             }]
         }, {
             label: "VIDEOS",
@@ -37,7 +37,7 @@
                 url: "#video-category/3"
             }, {
                 title: "Entertainment",
-                url: "#video-category/2"
+                url: "#video-category/4"
             }]
         }, {
             label: "GAMES",
@@ -53,10 +53,10 @@
                 url: "#game-category/3"
             }, {
                 title: "Racing",
-                url: "#game-category/2"
+                url: "#game-category/4"
             }]
         }];
-        
+
         $rootScope.mainTabs = tabs;
 
 

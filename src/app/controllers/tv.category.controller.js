@@ -10,7 +10,7 @@
         var vm = this;
         var category = $stateParams.category;
         vm.data = {
-            categoryTitles: ["", "FITNESS TV", "COOKING TV", "GOSSIP TV"],
+            categoryTitles: ["", "FITNESS TV", "COOKING TV", "GOSSIP TV", "TRAVAL TV"],
             featuredVideoTitle : "Poultry recipe Barbecue Chicken",
             category: category,
             items: [{

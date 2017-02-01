@@ -139,6 +139,12 @@ pre {
   color: darkcyan;
   margin: 2px;
   font-size: 12px;
+  min-width: 60px;
+  text-align: center;
+  display: inline-block;
+  &:hover, &:active {
+    text-decoration: none;
+  }
 }
 
 .section-label {
@@ -168,6 +174,7 @@ pre {
 
     .box {
       box-shadow: 1px 0px 4px grey;
+      display: inline-block;
     }
   }
 }
