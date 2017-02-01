@@ -2,7 +2,7 @@
   'use strict';
 
   angular
-    .module('flysat')
+    .module('app')
     .config(config);
 
   /** @ngInject */

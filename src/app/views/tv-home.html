@@ -1,0 +1,25 @@
+<div class="container">
+    <div>FEATURED</div>
+    <div class="embed-responsive embed-responsive-4by3">
+        <iframe class="embed-responsive-item" src="//www.youtube.com/embed/j5aIqSSVrdc"></iframe>
+    </div>
+    <div class="video-title">{{vm.data.featuredVideoTitle}}</div>
+
+    <div class="section" ng-repeat="cate in vm.data.categories">
+        <hr/>
+        <div class="section-label text-center">{{cate.title}}</div>
+        <div class="container">
+            <div class="row">
+                <div class="button-wrapper">
+                    <a href="#tv-category/{{cate.id}}" class="btn btn-info btn-rect">View All</a>
+                </div>
+                <div class="col-xs-6 item" ng-repeat="item in cate.items">
+                    <a href="#tv-content" class="box">
+                        <img class="img-responsive" ng-src="./assets/images/{{item.thumb}}">
+                        <div>{{item.title}}</div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,45 +1,74 @@
 (function () {
     'use strict';
 
-    angular
-        .module('flysat')
-        .run(runBlock)
-        .controller('MainController', MainController);
+    angular.module('app')
+        .run(runBlock);
 
     /** @ngInject */
-    function runBlock($log, $rootScope) {
-        $rootScope.topMenuItems = [
-            {id: '1', label: 'Home', url: '#home', className: 'menu-item'},
-            {id: '2', label: 'Sat News', url: '#singlesat', className: ''},
-            {id: '3', label: 'Sat List', url: '#input', className: ''},
-            {id: '4', label: 'Packages', url: '#packages', className: ''},
-            {id: '5', label: 'HD TV', url: '#hd_tv', className: ''},
-            {id: '6', label: 'UHD TV', url: '#uhd_tv', className: 'hide-sm'},
-            {id: '7', label: '3D TV', url: '#3d_tv', className: 'hide-sm'},
-            {id: '8', label: 'FTA TV', url: '#fta_tv', className: ''},
-            {id: '9', label: 'Launches', url: '#launches', className: 'hide-sm'},
-            {id: '10', label: 'Sat Info', url: '#sat_info', className: ''},
-            {id: '11', label: 'Track', url: '#track', className: 'hide-sm'},
-            {id: '12', label: 'Update Form', url: '#update_form', className: ''},
-            {id: '13', label: 'Football', url: '#football', className: 'hide-sm'}
-        ];
+    function runBlock($rootScope) {
 
-        $rootScope.currMenu = '1';
+        var tabs = [{
+            label: "TV CHANNELS",
+            url: '#tv-home',
+            categories: [{
+                title: "Fitness TV",
+                url: "#tv-category/1"
+            }, {
+                title: "Gossip TV",
+                url: "#tv-category/2"
+            }, {
+                title: "Cooking TV",
+                url: "#tv-category/3"
+            }, {
+                title: "Travel TV",
+                url: "#tv-category/2"
+            }]
+        }, {
+            label: "VIDEOS",
+            url: '#video-home',
+            categories: [{
+                title: "Lifestyle",
+                url: "#video-category/1"
+            }, {
+                title: "Kids",
+                url: "#video-category/2"
+            }, {
+                title: "Cooking",
+                url: "#video-category/3"
+            }, {
+                title: "Entertainment",
+                url: "#video-category/2"
+            }]
+        }, {
+            label: "GAMES",
+            url: '#game-home',
+            categories: [{
+                title: "Puzzle",
+                url: "#game-category/1"
+            }, {
+                title: "Arcade",
+                url: "#game-category/2"
+            }, {
+                title: "Action",
+                url: "#game-category/3"
+            }, {
+                title: "Racing",
+                url: "#game-category/2"
+            }]
+        }];
+        
+        $rootScope.mainTabs = tabs;
 
-        Date.prototype.getDateString = function() {
-            if (!this.getDate()) {
-                return '';
-            } else {
-                return this.getDate() + '/' + (this.getMonth() + 1) + '/' + this.getFullYear();
-            }
-        }
 
+        angular.element(document).ready(function () {
+            var sideslider = $('[data-toggle=collapse-side]');
+            var sel = sideslider.attr('data-target');
+            var sel2 = sideslider.attr('data-target-2');
+            sideslider.click(function (event) {
+                $(sel).toggleClass('in');
+                $(sel2).toggleClass('out');
+            });
+        });
     }
 
-    function MainController($rootScope) {
-        $rootScope.topMenuClick = function (menuId) {
-            $rootScope.currMenu = menuId;
-        }
-    }
 })();
-
