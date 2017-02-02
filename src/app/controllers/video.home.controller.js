@@ -8,12 +8,13 @@
     /** @ngInject */
     function VideoHomeController() {
         var vm = this;
+        vm.viewAllText = ["رؤية الجميع", "View All"];
         vm.data = {
             featuredVideoId: "j5aIqSSVrdc",
             featuredVideoTitle: "Fitness Workouts for women",
             categories: [{
                 id: 1,
-                title: "LIFESTYLE",
+                title: ["أنماط الحياة", "LIFESTYLE"],
                 color: "color5",
                 items: [{
                     id: 1,
@@ -34,7 +35,7 @@
                 }]
             }, {
                 id: 2,
-                title: "COOKING",
+                title: ["طبخ", "COOKING"],
                 color: "color3",
                 items: [{
                     id: 3,
@@ -55,7 +56,7 @@
                 }]
             }, {
                 id: 3,
-                title: "KIDS",
+                title: ["أطفال", "KIDS"],
                 color: "color2",
                 items: [{
                     id: 5,

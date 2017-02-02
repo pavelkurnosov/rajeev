@@ -8,12 +8,13 @@
     /** @ngInject */
     function GameHomeController() {
         var vm = this;
+        vm.viewAllText = ["رؤية الجميع", "View All"];
         vm.data = {
             featuredVideoId: "j5aIqSSVrdc",
             featuredVideoTitle: "Fitness Workouts for women",
             categories: [{
                 id: 1,
-                title: "NEW GAMES",
+                title: ["ألعاب جديدة", "NEW GAMES"],
                 color: "color5",
                 items: [{
                     id: 1,
@@ -34,7 +35,7 @@
                 }]
             }, {
                 id: 2,
-                title: "POPULAR GAMES",
+                title: ["ألعاب مشهورة", "POPULAR GAMES"],
                 color: "color3",
                 items: [{
                     id: 3,
@@ -55,7 +56,7 @@
                 }]
             }, {
                 id: 3,
-                title: "GAMES BY CATEGORY",
+                title: ["ألعاب حسب الفئة", "GAMES BY CATEGORY"],
                 color: "color2",
                 items: [{
                     id: 5,

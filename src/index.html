@@ -40,36 +40,31 @@
         <div class="navbar-inverse side-collapse {{!menu.visible ? 'in' : 'out'}}">
             <div class="my-info">
                 <div class="avatar"></div>
-                <div class="account-title">MY ACCOUNT</div>
+                <div class="account-title">{{vm.accountName[lang]}}</div>
             </div>
             <nav role="navigation" class="navbar-collapse">
-
                 <ul class="nav navbar-nav" ng-click="menu.visible=false">
-                    <li><a href="#Home"><img src="./assets/images/home.png"> Home</a></li>
-                    <li><a href="#Home"><img src="./assets/images/featured.png"> Featured</a></li>
-                    <li ng-click="vm.tabSelect(0)"><a><img src="./assets/images/tv_channels.png"> TV Channels</a></li>
-                    <li ng-click="vm.tabSelect(1)"><a><img src="./assets/images/videos.png"> Videos</a></li>
-                    <li ng-click="vm.tabSelect(2)"><a><img src="./assets/images/games.png"> Games</a></li>
-                    <li><a href="#Home"><img src="./assets/images/favourites.png"> Favourites</a></li>
-                    <li><a href="#Home"><img src="./assets/images/help.png"> Help</a></li>
-                    <li><a href="#Home"><img src="./assets/images/feedback.png"> Feedback</a></li>
+                    <li ng-repeat="menu in vm.menus"
+                        ng-click="vm.tabSelect(menu.tabInd)">
+                        <a><img src="./assets/images/{{menu.icon}}"> {{menu.label[lang]}}</a>
+                    </li>
                 </ul>
             </nav>
         </div>
 
         <uib-tabset active="active" ng-click="menu.visible=false">
-            <uib-tab ng-repeat="tab in mainTabs"
+            <uib-tab ng-repeat="tab in vm.tabs"
                      index="$index"
-                     heading="{{tab.label}}"
+                     heading="{{tab.label[lang]}}"
                      select="vm.tabSelect($index);">
 
-                <div class="categories text-center" ng-init="cate.actived = -1">
+                <div class="categories text-center" ng-init="vm.cateActived = -1">
                     <a ng-href="{{category.url}}"
                        class="category-link {{category.color}}"
-                       ng-class="{active: cate.actived == $index}"
-                       ng-click="cate.actived = $index"
+                       ng-class="{active: vm.cateActived == $index}"
+                       ng-click="vm.cateActived = $index"
                        ng-repeat="category in tab.categories">
-                        {{category.title}}
+                        {{category.title[lang]}}
                     </a>
                 </div>
 
@@ -78,8 +73,21 @@
     </div>
 
 </header>
-<div ui-view ng-click="menu.visible=false"></div>
 
+<section class="body-section">
+<div ui-view ng-click="menu.visible=false"></div>
+</section>
+
+<footer ng-click="menu.visible=false">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <button ng-click="lang=0">Arabic</button>
+                <button ng-click="lang=1">English</button>
+            </div>
+        </div>
+    </div>
+</footer>
 <!-- build:js(src) scripts/vendor.js -->
 <!-- bower:js -->
 <!-- run `gulp inject` to automatically populate bower script dependencies -->

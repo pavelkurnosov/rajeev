@@ -8,12 +8,12 @@
     <div class="section" ng-repeat="cate in vm.data.categories">
         <hr class="border-{{cate.color}}"/>
         <div class="section-label text-center text-{{cate.color}}">
-            <span>{{cate.title}}</span>
+            <span>{{cate.title[lang]}}</span>
         </div>
         <div class="container">
             <div class="row">
                 <div class="button-wrapper">
-                    <a href="#tv-category/{{cate.id}}" class="btn btn-info btn-rect bg-{{cate.color}}">View All</a>
+                    <a href="#tv-category/{{cate.id}}" class="btn btn-info btn-rect bg-{{cate.color}}">{{vm.viewAllText[lang]}}</a>
                 </div>
                 <slick infinite=true
                        slides-to-show=2

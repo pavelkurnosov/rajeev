@@ -8,12 +8,14 @@
     /** @ngInject */
     function TvHomeController() {
         var vm = this;
+        vm.viewAllText = ["رؤية الجميع", "View All"];
+
         vm.data = {
             featuredVideoId: "j5aIqSSVrdc",
             featuredVideoTitle: "Fitness Workouts for women",
             categories: [{
                 id: 1,
-                title: "FITNESS TV",
+                title: ["تليفزيون اللياقة", "FITNESS TV"],
                 color: "color1",
                 items: [{
                     id: 1,
@@ -34,7 +36,7 @@
                 }]
             }, {
                 id: 2,
-                title: "COOKING TV",
+                title: ["تليفزيون الطبخ", "COOKING TV"],
                 color: "color3",
                 items: [{
                     id: 3,
@@ -55,7 +57,7 @@
                 }]
             }, {
                 id: 3,
-                title: "GOSSIP TV",
+                title: ["تليفزيون الثرثرة", "GOSSIP TV"],
                 color: "color2",
                 items: [{
                     id: 5,
