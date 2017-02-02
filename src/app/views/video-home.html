@@ -1,7 +1,7 @@
 <div class="container">
     <div class="featured-label">FEATURED</div>
     <div class="embed-responsive embed-responsive-4by3">
-        <iframe class="embed-responsive-item" src="//www.youtube.com/embed/8u1eyw9p1hg"></iframe>
+        <iframe class="embed-responsive-item" src="//www.youtube.com/embed/j5aIqSSVrdc"></iframe>
     </div>
     <div class="video-title">{{vm.data.featuredVideoTitle}}</div>
 
@@ -15,12 +15,18 @@
                 <div class="button-wrapper">
                     <a href="#video-category/{{cate.id}}" class="btn btn-info btn-rect bg-{{cate.color}}">View All</a>
                 </div>
-                <div class="col-xs-6 item" ng-repeat="item in cate.items">
-                    <a href="#video-content/{{item.id}}" class="box">
-                        <img class="img-responsive" ng-src="./assets/images/video_{{item.thumb}}">
-                        <div>{{item.title}}</div>
-                    </a>
-                </div>
+                <slick infinite=true
+                       slides-to-show=2
+                       slides-to-scroll=2
+                       prev-arrow=".slick-prev"
+                       next-arrow=".slick-next">
+                    <div class="slick-item item" ng-repeat="item in cate.items">
+                        <a href="#video-content/{{item.id}}" class="box">
+                            <img class="img-responsive" ng-src="./assets/images/video_{{item.thumb}}">
+                            <div>{{item.title}}</div>
+                        </a>
+                    </div>
+                </slick>
             </div>
         </div>
     </div>

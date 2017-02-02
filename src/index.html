@@ -47,9 +47,9 @@
                 <ul class="nav navbar-nav" ng-click="menu.visible=false">
                     <li><a href="#Home"><img src="./assets/images/home.png"> Home</a></li>
                     <li><a href="#Home"><img src="./assets/images/featured.png"> Featured</a></li>
-                    <li><a href="#tv-home"><img src="./assets/images/tv_channels.png"> TV Channels</a></li>
-                    <li><a href="#video-home"><img src="./assets/images/videos.png"> Videos</a></li>
-                    <li><a href="#game-home"><img src="./assets/images/games.png"> Games</a></li>
+                    <li ng-click="vm.tabSelect(0)"><a><img src="./assets/images/tv_channels.png"> TV Channels</a></li>
+                    <li ng-click="vm.tabSelect(1)"><a><img src="./assets/images/videos.png"> Videos</a></li>
+                    <li ng-click="vm.tabSelect(2)"><a><img src="./assets/images/games.png"> Games</a></li>
                     <li><a href="#Home"><img src="./assets/images/favourites.png"> Favourites</a></li>
                     <li><a href="#Home"><img src="./assets/images/help.png"> Help</a></li>
                     <li><a href="#Home"><img src="./assets/images/feedback.png"> Feedback</a></li>

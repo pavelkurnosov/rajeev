@@ -225,11 +225,13 @@ pre {
 
     .nav-link {
       font-weight: bold;
-      font-size: 12px;
+      font-size: 14px;
       padding: 10px 0 10px 0;
       text-align: center;
       border: 0 !important;
       border-radius: 0;
+      letter-spacing: -1px;
+
       &.active, &:focus {
         border: 0;
       }
@@ -248,7 +250,8 @@ pre {
   padding: 2px 4px 1px 4px;;
   color: darkcyan;
   margin: 2px;
-  font-size: 12px;
+  font-size: 14px;
+  letter-spacing: -1px;
   min-width: 60px;
   text-align: center;
   display: inline-block;

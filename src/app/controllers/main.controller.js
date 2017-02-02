@@ -9,15 +9,12 @@
     function MainController($state) {
         var vm = this;
         vm.tabSelect  = function (tabInd) {
-            if (tabInd == 0) {
-                $state.go('tv-home');
-            } else if (tabInd == 1) {
-                $state.go('video-home');
-            } else {
-                $state.go('game-home');
-            }
+            var urls = ['tv-home', 'video-home', 'game-home'];
+            $state.go(urls[tabInd]);
 
-        }
+            $('.nav-tabs .nav-item').removeClass('active');
+            $('.nav-tabs .nav-item').eq(tabInd).addClass('active');
+        };
     }
 })();
 

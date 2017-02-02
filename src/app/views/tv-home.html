@@ -15,12 +15,18 @@
                 <div class="button-wrapper">
                     <a href="#tv-category/{{cate.id}}" class="btn btn-info btn-rect bg-{{cate.color}}">View All</a>
                 </div>
-                <div class="col-xs-6 item" ng-repeat="item in cate.items">
-                    <a href="#tv-content/{{item.id}}" class="box">
-                        <img class="img-responsive" ng-src="./assets/images/tv_{{item.thumb}}">
-                        <div>{{item.title}}</div>
-                    </a>
-                </div>
+                <slick infinite=true
+                       slides-to-show=2
+                       slides-to-scroll=2
+                       prev-arrow=".slick-prev"
+                       next-arrow=".slick-next">
+                    <div class="slick-item item" ng-repeat="item in cate.items">
+                        <a href="#tv-content/{{item.id}}" class="box">
+                            <img class="img-responsive" ng-src="./assets/images/tv_{{item.thumb}}">
+                            <div>{{item.title}}</div>
+                        </a>
+                    </div>
+                </slick>
             </div>
         </div>
     </div>
