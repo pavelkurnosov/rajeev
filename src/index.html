@@ -19,7 +19,7 @@
     <!-- endinject -->
     <!-- endbuild -->
 </head>
-<body ng-controller="MainController as vm">
+<body ng-controller="MainController as vm" ng-class="{'ltr-body':lang==1}">
 <!--[if lt IE 10]>
 <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
     your browser</a> to improve your experience.</p>
@@ -30,12 +30,13 @@
         <div class="navbar-header" ng-init="menu.visible=false">
             <button type="button"
                     ng-click="menu.visible = !menu.visible"
-                    class="navbar-toggle pull-left">
+                    class="navbar-toggle" ng-class="{'pull-left':lang == 1}">
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <div class="logo" ng-click="menu.visible=false"></div>
+            <!--<div class="logo" ng-click="menu.visible=false"></div>-->
+            <div class="text-center" ng-click="menu.visible=false" style="padding-top: 20px; font-weight: bold;">HIA SPECIAL</div>
         </div>
         <div class="navbar-inverse side-collapse {{!menu.visible ? 'in' : 'out'}}">
             <div class="my-info">
@@ -82,8 +83,8 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12 text-center">
-                <button ng-click="lang=0">Arabic</button>
-                <button ng-click="lang=1">English</button>
+                <button class="btn btn-default btn-xs" ng-click="lang=0">Arabic</button>
+                <button class="btn btn-default btn-xs" ng-click="lang=1">English</button>
             </div>
         </div>
     </div>

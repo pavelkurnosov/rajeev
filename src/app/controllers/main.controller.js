@@ -110,7 +110,7 @@
 
 
         vm.tabSelect  = function (tabInd) {
-            if (tabInd != "") {
+            if (tabInd == 0 || tabInd != "") {
                 var urls = ['tv-home', 'video-home', 'game-home'];
                 $state.go(urls[tabInd]);
                 vm.cateActived = -1;
