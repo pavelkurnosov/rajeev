@@ -64,6 +64,18 @@
                 title: ["تليفزيون السفر", "Travel TV"],
                 url: "#tv-category/4",
                 color: "color4"
+            }, {
+                title: ["تليفزيون الثرثرة", "Gossip TV"],
+                url: "#tv-category/2",
+                color: "color2"
+            }, {
+                title: ["تليفزيون الطبخ", "Cooking TV"],
+                url: "#tv-category/3",
+                color: "color3"
+            }, {
+                title: ["تليفزيون السفر", "Travel TV"],
+                url: "#tv-category/4",
+                color: "color4"
             }]
         }, {
             label: ["فيديوهات", "VIDEOS"],
@@ -76,6 +88,14 @@
                 title: ["أطفال", "Kids"],
                 url: "#video-category/2",
                 color: "color2"
+            }, {
+                title: ["طبخ", "Cooking"],
+                url: "#video-category/3",
+                color: "color3"
+            }, {
+                title: ["تسلية", "Entertainment"],
+                url: "#video-category/4",
+                color: "color4"
             }, {
                 title: ["طبخ", "Cooking"],
                 url: "#video-category/3",
@@ -104,16 +124,29 @@
                 title: ["سباق", "Racing"],
                 url: "#game-category/4",
                 color: "color4"
+            }, {
+                title: ["أركايد", "Arcade"],
+                url: "#game-category/2",
+                color: "color2"
+            }, {
+                title: ["حركة", "Action"],
+                url: "#game-category/3",
+                color: "color3"
+            }, {
+                title: ["سباق", "Racing"],
+                url: "#game-category/4",
+                color: "color4"
             }]
         }];
 
 
-
-        vm.tabSelect  = function (tabInd) {
+        vm.tabSelect  = function (tabInd, tab) {
             if (tabInd == 0 || tabInd != "") {
                 var urls = ['tv-home', 'video-home', 'game-home'];
                 $state.go(urls[tabInd]);
                 vm.cateActived = -1;
+
+                vm.selectTab = tab;
 
                 $('.nav-tabs .nav-item').removeClass('active');
                 $('.nav-tabs .nav-item').eq(tabInd).addClass('active');

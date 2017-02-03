@@ -36,7 +36,9 @@
                 <span class="icon-bar"></span>
             </button>
             <!--<div class="logo" ng-click="menu.visible=false"></div>-->
-            <div class="text-center" ng-click="menu.visible=false" style="padding-top: 20px; font-weight: bold;">HIA SPECIAL</div>
+            <div class="text-center" ng-click="menu.visible=false" style="padding-top: 20px; font-weight: bold;">HIA
+                SPECIAL
+            </div>
         </div>
         <div class="navbar-inverse side-collapse {{!menu.visible ? 'in' : 'out'}}">
             <div class="my-info">
@@ -47,7 +49,7 @@
                 <ul class="nav navbar-nav" ng-click="menu.visible=false">
                     <li ng-repeat="menu in vm.menus"
                         ng-click="vm.tabSelect(menu.tabInd)">
-                        <a><img src="./assets/images/{{menu.icon}}"> {{menu.label[lang]}}</a>
+                        <a><img ng-src="./assets/images/{{menu.icon}}"> {{menu.label[lang]}}</a>
                     </li>
                 </ul>
             </nav>
@@ -57,16 +59,25 @@
             <uib-tab ng-repeat="tab in vm.tabs"
                      index="$index"
                      heading="{{tab.label[lang]}}"
-                     select="vm.tabSelect($index);">
+                     select="vm.tabSelect($index, tab);">
 
-                <div class="categories text-center" ng-init="vm.cateActived = -1">
-                    <a ng-href="{{category.url}}"
-                       class="category-link {{category.color}}"
-                       ng-class="{active: vm.cateActived == $index}"
-                       ng-click="vm.cateActived = $index"
-                       ng-repeat="category in tab.categories">
-                        {{category.title[lang]}}
-                    </a>
+                <div class="categories text-center"
+                     ng-init="vm.cateActived = -1">
+                    <slick infinite=true
+                           ng-if="vm.selectTab.url==tab.url"
+                           slides-to-show=4
+                           slides-to-scroll=4
+                           prev-arrow=".slick-prev"
+                           next-arrow=".slick-next">
+                        <a ng-href="{{category.url}}"
+                           class="category-link {{category.color}}"
+                           ng-class="{active: vm.cateActived == $index}"
+                           ng-click="vm.cateActived = $index"
+                           ng-repeat="category in tab.categories"
+                           ng-cloak>
+                            {{category.title[lang]}}
+                        </a>
+                    </slick>
                 </div>
 
             </uib-tab>
@@ -76,15 +87,19 @@
 </header>
 
 <section class="body-section">
-<div ui-view ng-click="menu.visible=false"></div>
+    <div ui-view ng-click="menu.visible=false"></div>
 </section>
 
 <footer ng-click="menu.visible=false">
     <div class="container">
         <div class="row">
-            <div class="col-md-12 text-center">
-                <button class="btn btn-default btn-xs" ng-click="lang=0">Arabic</button>
-                <button class="btn btn-default btn-xs" ng-click="lang=1">English</button>
+            <div class="col-xs-9 col-md-9">
+                <div class="copyright-div">copyright HIA SPECIAL. contact : support@hiaspecial.com</div>
+            </div>
+            <div class="col-xs-3 col-md-3">
+                <button class="btn btn-default btn-xs lang-btn" ng-click="lang = lang == 0 ? 1 : 0">
+                    {{lang==1?'Arabic':'English'}}
+                </button>
             </div>
         </div>
     </div>

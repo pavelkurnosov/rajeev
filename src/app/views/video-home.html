@@ -12,7 +12,7 @@
         </div>
         <div class="container">
             <div class="row">
-                <div class="button-wrapper">
+                <div class="button-wrapper" ng-class="{'text-right': lang == 1}">
                     <a href="#video-category/{{cate.id}}" class="btn btn-info btn-rect bg-{{cate.color}}">{{vm.viewAllText[lang]}}</a>
                 </div>
                 <slick infinite=true
