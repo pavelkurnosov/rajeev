@@ -49,6 +49,17 @@ pre {
   tab-size: 8;
 }
 
+.right-menu {
+  .avatar {
+    float: right !important;
+    margin-right: 20px;
+  }
+  .account-title {
+    float: right !important;
+    margin-right: 20px;
+  }
+}
+
 @media screen and (max-width: 768px) {
   .side-collapse-container {
     width: 100%;
@@ -437,7 +448,7 @@ footer {
   display: none !important;
 }
 
-hr{
+hr {
   margin-top: 20px;
   margin-bottom: 0px;
 }
@@ -445,6 +456,7 @@ hr{
 .lang-btn {
   float: right;
 }
+
 .copyright-div {
   font-size: 9px;
   padding-top: 5px;

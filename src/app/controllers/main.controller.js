@@ -6,7 +6,7 @@
         .controller('MainController', MainController);
 
     /** @ngInject */
-    function MainController($state) {
+    function MainController($state, $rootScope) {
         var vm = this;
         vm.cateActived = 0;
         vm.accountName = ["حسابي", "My account"];
@@ -151,6 +151,11 @@
                 $('.nav-tabs .nav-item').removeClass('active');
                 $('.nav-tabs .nav-item').eq(tabInd).addClass('active');
             }
+        };
+
+        vm.changeLanguage = function () {
+            $rootScope.lang = $rootScope.lang == 0 ? 1 : 0;
+            vm.tabs.reverse();
         };
     }
 })();
