@@ -5,6 +5,9 @@
   angular
     .module('app')
     .constant('malarkey', malarkey)
-    .constant('moment', moment);
+    .constant('moment', moment)
+    .constant('ServerURL', 'http://hiaspecial.com/test.php?action=')
+
+  ;
 
 })();
