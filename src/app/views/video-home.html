@@ -1,9 +1,7 @@
 <div class="container">
     <div class="featured-label">FEATURED</div>
-    <div class="embed-responsive embed-responsive-4by3">
-        <video id="video" controls loop>
-            <source src="https://s3.amazonaws.com/tmt-hfa-dto/videos/409560.mp4">
-        </video>
+    <div class="embed-responsive embed-responsive-16by9">
+        <video id="video" controls loop autoplay ng-src="{{vm.data.featuredVideoUrl}}"></video>
     </div>
     <div class="video-title">{{vm.data.featuredVideoTitle}}</div>
 

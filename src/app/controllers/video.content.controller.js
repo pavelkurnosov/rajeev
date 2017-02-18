@@ -1,39 +1,27 @@
-(function() {
-  'use strict';
+(function () {
+    'use strict';
 
-  angular
-    .module('app')
-    .controller('VideoContentController', VideoContentController);
+    angular
+        .module('app')
+        .controller('VideoContentController', VideoContentController);
 
-  /** @ngInject */
-  function VideoContentController($stateParams) {
-    var vm = this;
-    var content = $stateParams.contentId;
-    vm.data = {
-      categoryTitles: ["", "FITNESS TV", "COOKING TV", "GOSSIP TV", "TRAVAL TV"],
-      featuredVideoTitle : "Chicago style Hotdog",
+    /** @ngInject */
+    function VideoContentController($stateParams, $http, ServerURL) {
+        var vm = this;
+        vm.content = $stateParams.contentId;
+        vm.data = {};
+        vm.rows = [];
 
-      items: [{
-        thumb: "thumb" + (content * 2 - 1) + ".jpg",
-        title: "Yoga"
-      }, {
-        thumb: "thumb" + (content * 2) + ".jpg",
-        title: "Meditation"
-      }, {
-        thumb: "thumb" + (content * 2 - 1) + ".jpg",
-        title: "Yoga"
-      }, {
-        thumb: "thumb" + (content * 2) + ".jpg",
-        title: "Meditation"
-      }, {
-        thumb: "thumb" + (content * 2 - 1) + ".jpg",
-        title: "Yoga"
-      }, {
-        thumb: "thumb" + (content * 2) + ".jpg",
-        title: "Meditation"
-      }]
-    };
-  }
+        $http.get(ServerURL + 'videoContent&content=' + vm.content).then(function (response) {
+            vm.data = response.data;
+
+            console.log(vm.data);
+            for (var d in vm.data.items) {
+                if (d % 2 == 0) continue;
+                vm.rows[vm.rows.length] = [vm.data.items[d - 1], vm.data.items[d]];
+            }
+        });
+    }
 })();
 
 
