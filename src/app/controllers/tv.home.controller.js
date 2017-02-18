@@ -6,11 +6,13 @@
         .controller('TvHomeController', TvHomeController);
 
     /** @ngInject */
-    function TvHomeController() {
+    function TvHomeController($http, ServerURL) {
         var vm = this;
         vm.viewAllText = ["رؤية الجميع", "View All"];
-
-        vm.data = {
+        $http.get(ServerURL + 'defaultTV').then(function (response) {
+            vm.data = response.data;
+        });
+        /*vm.data = {
             featuredVideoId: "j5aIqSSVrdc",
             featuredVideoTitle: "Fitness Workouts for women",
             categories: [{
@@ -77,7 +79,7 @@
                     title: "Asian Shrimp soup"
                 }]
             }]
-        };
+        };*/
     }
 })();
 

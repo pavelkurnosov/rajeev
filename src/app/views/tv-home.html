@@ -1,7 +1,7 @@
 <div class="container">
     <div class="featured-label">FEATURED</div>
     <div class="embed-responsive embed-responsive-16by9">
-        <iframe class="embed-responsive-item" src="//www.youtube.com/embed/j5aIqSSVrdc"></iframe>
+        <video id="video" controls loop ng-src="{{vm.data.featuredVideoUrl}}"></video>
     </div>
 
     <div class="video-title">{{vm.data.featuredVideoTitle}}</div>
@@ -23,7 +23,7 @@
                        next-arrow=".slick-next">
                     <div class="slick-item item" ng-repeat="item in cate.items">
                         <a href="#tv-content/{{item.id}}" class="box">
-                            <img class="img-responsive" ng-src="./assets/images/tv_{{item.thumb}}">
+                            <img class="img-responsive" ng-src="{{item.thumb}}">
                             <div>{{item.title}}</div>
                         </a>
                     </div>
