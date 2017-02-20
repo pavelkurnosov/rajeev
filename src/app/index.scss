@@ -415,6 +415,10 @@ pre {
     .box {
       box-shadow: 1px 0px 4px grey;
       display: inline-block;
+      width: 100%;
+      .img-responsive {
+        margin: auto;
+      }
     }
   }
 }
@@ -464,4 +468,19 @@ hr {
 
 .thumb-img {
   min-height: 115px;
+}
+
+.img-featured {
+  margin: auto;
+  width: 70%;
+}
+
+.game-home-container, .game-content-container {
+  .row {
+    .item {
+      .box {
+        box-shadow: none;
+      }
+    }
+  }
 }

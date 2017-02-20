@@ -6,33 +6,20 @@
         .controller('GameContentController', GameContentController);
 
     /** @ngInject */
-    function GameContentController($stateParams) {
+    function GameContentController($stateParams, $http, ServerURL) {
         var vm = this;
-        var content = $stateParams.contentId;
-        vm.data = {
-            categoryTitles: ["", "FITNESS TV", "COOKING TV", "GOSSIP TV", "TRAVAL TV"],
-            featuredVideoTitle : "Chicago style Hotdog",
+        vm.contentId = $stateParams.contentId;
+        vm.data = {};
+        vm.rows = [];
 
-            items: [{
-                thumb: "thumb" + (content * 2 - 1) + ".jpg",
-                title: "Yoga"
-            }, {
-                thumb: "thumb" + (content * 2) + ".jpg",
-                title: "Meditation"
-            }, {
-                thumb: "thumb" + (content * 2 - 1) + ".jpg",
-                title: "Yoga"
-            }, {
-                thumb: "thumb" + (content * 2) + ".jpg",
-                title: "Meditation"
-            }, {
-                thumb: "thumb" + (content * 2 - 1) + ".jpg",
-                title: "Yoga"
-            }, {
-                thumb: "thumb" + (content * 2) + ".jpg",
-                title: "Meditation"
-            }]
-        };
+        $http.get(ServerURL + 'gamesContent&content=' + vm.contentId).then(function (response) {
+            vm.data = response.data;
+
+            for (var d in vm.data.items) {
+                if (d % 2 == 0) continue;
+                vm.rows[vm.rows.length] = [vm.data.items[d - 1], vm.data.items[d]];
+            }
+        });
     }
 })();
 

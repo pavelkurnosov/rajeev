@@ -1,23 +1,21 @@
-<div class="container">
+<div class="container game-content-container">
     <div class="featured-label">FEATURED</div>
-    <div class="embed-responsive embed-responsive-16by9">
-        <iframe class="embed-responsive-item" src="//www.youtube.com/embed/eXxfA8IY8Zc"></iframe>
-    </div>
+    <a ng-href="{{vm.data.featuredRedirectUrl}}">
+        <img class="img-responsive img-featured" ng-src="{{vm.data.featuredVideoUrl}}">
+    </a>
     <div class="video-title">{{vm.data.featuredVideoTitle}}</div>
 
     <hr class="border-color3"/>
     <div class="section-label text-center text-color3">
-        <span>Related Videos</span>
+        <span>Related Games</span>
     </div>
 
-    <div class="container">
-        <div class="row">
-            <div class="col-xs-6 item" ng-repeat="item in vm.data.items">
-                <a href="#tv-content" class="box">
-                    <img class="img-responsive" ng-src="./assets/images/game_{{item.thumb}}">
-                    <div>{{item.title}}</div>
-                </a>
-            </div>
+    <div class="row" ng-repeat="row in vm.rows">
+        <div class="col-xs-6 item" ng-repeat="item in row">
+            <a href="#game-content/{{item.id}}" class="box">
+                <img class="img-responsive thumb-img" ng-src="{{item.thumb}}">
+                <div class="text-center">{{item.title}}</div>
+            </a>
         </div>
     </div>
 </div>

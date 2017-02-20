@@ -1,8 +1,10 @@
-<div class="container">
+<div class="container game-home-container">
     <div class="featured-label">FEATURED</div>
-    <div class="embed-responsive embed-responsive-16by9">
-        <iframe class="embed-responsive-item" src="//www.youtube.com/embed/j5aIqSSVrdc"></iframe>
-    </div>
+
+    <a ng-href="{{vm.data.featuredRedirectUrl}}">
+        <img class="img-responsive img-featured" ng-src="{{vm.data.featuredVideoUrl}}">
+    </a>
+
     <div class="video-title">{{vm.data.featuredVideoTitle}}</div>
 
     <div class="section" ng-repeat="cate in vm.data.categories">
@@ -22,8 +24,8 @@
                        next-arrow=".slick-next">
                     <div class="slick-item item" ng-repeat="item in cate.items">
                         <a href="#game-content/{{item.id}}" class="box">
-                            <img class="img-responsive" ng-src="./assets/images/game_{{item.thumb}}">
-                            <div>{{item.title}}</div>
+                            <img class="img-responsive" ng-src="{{item.thumb}}">
+                            <div class="text-center">{{item.title}}</div>
                         </a>
                     </div>
                 </slick>
