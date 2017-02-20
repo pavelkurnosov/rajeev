@@ -6,11 +6,20 @@
         .controller('GameHomeController', GameHomeController);
 
     /** @ngInject */
-    function GameHomeController($http, ServerURL) {
+    function GameHomeController($http, ServerURL, $rootScope) {
         var vm = this;
         vm.viewAllText = ["رؤية الجميع", "View All"];
         $http.get(ServerURL + 'defaultGames').then(function (response) {
             vm.data = response.data;
+
+            $rootScope.categories = [];
+            for (var c in vm.data.categories) {
+                $rootScope.categories[$rootScope.categories.length] = {
+                    title: vm.data.categories[c]['title'],
+                    url: '#game-category/' + vm.data.categories[c]['id'],
+                    color: vm.data.categories[c]['color']
+                };
+            }
         });
     }
 })();

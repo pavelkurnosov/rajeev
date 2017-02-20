@@ -59,6 +59,15 @@
             ]
         }];
 
+        $rootScope.categories = [
+            {title: ["تليفزيون اللياقة", "Fitness TV"], url: "#tv-category/1", color: "color1"},
+            {title: ["تليفزيون الثرثرة", "Gossip TV"], url: "#tv-category/2", color: "color2"},
+            {title: ["تليفزيون الطبخ", "Cooking TV"], url: "#tv-category/3", color: "color3"},
+            {title: ["تليفزيون السفر", "Travel TV"], url: "#tv-category/4", color: "color4"},
+            {title: ["تليفزيون الثرثرة", "Gossip TV"], url: "#tv-category/2", color: "color2"},
+            {title: ["تليفزيون الطبخ", "Cooking TV"], url: "#tv-category/3", color: "color3"},
+            {title: ["تليفزيون السفر", "Travel TV"], url: "#tv-category/4", color: "color4"}
+        ];
 
         vm.tabSelect = function (tabInd, tab) {
             if (tabInd == 0 || tabInd != "") {
