@@ -3,16 +3,6 @@
     <div class="embed-responsive embed-responsive-16by9">
         <video id="video" controls loop ng-src="{{vm.data.featuredVideoUrl}}"></video>
     </div>
-    <!--<div class="embed-responsive embed-responsive-16by9">
-        <video id="myvideo" class="video-js vjs-default-skin" controls
-               preload="auto" width="100%" height="400"
-               poster="{{vm.data.featuredVideoUrl}}"
-               ng-src="{{vm.data.featuredVideoUrl}}">
-        </video>
-    </div>-->
-
-
-
     <div class="video-title">{{vm.data.featuredVideoTitle}}</div>
 
     <div class="section" ng-repeat="cate in vm.data.categories">
@@ -33,7 +23,8 @@
                     <div class="slick-item item" ng-repeat="item in cate.items">
                         <a href="#tv-content/{{item.id}}" class="box">
                             <img class="img-responsive" ng-src="{{item.thumb}}">
-                            <div>{{item.title}}</div>
+                            <div class="dur-div">{{item.dur}}</div>
+                            <div class="text-center">{{item.title}}</div>
                         </a>
                     </div>
                 </slick>

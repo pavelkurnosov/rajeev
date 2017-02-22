@@ -10,13 +10,26 @@
     </div>
     <div class="video-title">{{vm.data.featuredVideoTitle}}</div>
 
-    <div class="container">
-        <div class="row" ng-repeat="row in vm.rows">
-            <div class="col-xs-6 item" ng-repeat="item in row">
-                <a href="#video-content/{{item.id}}" class="box">
-                    <img class="img-responsive thumb-img" ng-src="{{item.thumb}}">
-                    <div class="text-center">{{item.title}}</div>
-                </a>
+    <div class="section" ng-repeat="cate in vm.data.categories">
+        <hr class="border-{{cate.color}}"/>
+        <div class="section-label text-center text-{{cate.color}}">
+            <span>{{cate.title}}</span>
+        </div>
+        <div class="container">
+            <div class="row">
+                <slick infinite=true
+                       slides-to-show=2
+                       slides-to-scroll=2
+                       prev-arrow=".slick-prev"
+                       next-arrow=".slick-next">
+                    <div class="slick-item item" ng-repeat="item in cate.items">
+                        <a href="#video-content/{{item.id}}" class="box">
+                            <img class="img-responsive" ng-src="{{item.thumb}}">
+                            <div class="dur-div">{{item.dur}}</div>
+                            <div class="text-center">{{item.title}}</div>
+                        </a>
+                    </div>
+                </slick>
             </div>
         </div>
     </div>

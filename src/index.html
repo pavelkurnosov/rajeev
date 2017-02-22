@@ -62,7 +62,7 @@
                 <div class="categories text-center"
                      ng-init="vm.cateActived = -1">
                     <slick infinite=true
-                           ng-if="vm.selectTab.url==tab.url"
+                           ng-if="vm.selectTab.url==tab.url && vm.redrawTab"
                            slides-to-show=4
                            slides-to-scroll=4
                            prev-arrow=".slick-prev"
@@ -71,7 +71,7 @@
                            class="category-link {{category.color}}"
                            ng-class="{active: vm.cateActived == $index}"
                            ng-click="vm.cateActived = $index"
-                           ng-repeat="category in categories"
+                           ng-repeat="category in tab.categories"
                            ng-cloak>
                             {{category.title[lang]}}
                         </a>

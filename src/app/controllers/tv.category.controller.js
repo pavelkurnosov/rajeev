@@ -6,40 +6,20 @@
         .controller('TvCategoryController', TvCategoryController);
 
     /** @ngInject */
-    function TvCategoryController($stateParams) {
+    function TvCategoryController($stateParams, $http, ServerURL) {
         var vm = this;
-        var category = $stateParams.categoryId;
+        vm.categoryId = $stateParams.categoryId;
+        vm.data = {};
+        vm.rows = [];
 
-        vm.data = {
-            categoryTitles: ["", "FITNESS TV", "GOSSIP TV", "COOKING TV", "TRAVAL TV"],
-            featuredVideoTitle : "Poultry recipe Barbecue Chicken",
-            category: category,
-            items: [{
-                id: 1,
-                thumb: "tv_thumb" + (category * 2 - 1) + ".jpg",
-                title: "Yoga"
-            }, {
-                id: 2,
-                thumb: "tv_thumb" + (category * 2) + ".jpg",
-                title: "Meditation"
-            }, {
-                id: 3,
-                thumb: "tv_thumb" + (category * 2 - 1) + ".jpg",
-                title: "Yoga"
-            }, {
-                id: 4,
-                thumb: "tv_thumb" + (category * 2) + ".jpg",
-                title: "Meditation"
-            }, {
-                id: 5,
-                thumb: "tv_thumb" + (category * 2 - 1) + ".jpg",
-                title: "Yoga"
-            }, {
-                id: 6,
-                thumb: "tv_thumb" + (category * 2) + ".jpg",
-                title: "Meditation"
-            }]
-        };
+        $http.get(ServerURL + 'TVcategory&cat=' + vm.categoryId).then(function (response) {
+            vm.data = response.data;
+
+            for (var d in vm.data.items) {
+                if (d % 2 == 0) continue;
+                vm.rows[vm.rows.length] = [vm.data.items[d - 1], vm.data.items[d]];
+            }
+        });
     }
 })();
 
