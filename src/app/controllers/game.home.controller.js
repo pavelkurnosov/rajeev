@@ -21,7 +21,12 @@
                 };
             }
         });
+
+        vm.setCateActived = function (cateId) {
+            var parentScope = angular.element(document.getElementById('main')).scope();
+            parentScope.vm.cateActived = cateId - 1;
+        };
     }
 })();
-
+jjjmm
 

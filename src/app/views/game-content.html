@@ -1,21 +1,28 @@
 <div class="container game-content-container">
-    <div class="featured-label">FEATURED</div>
-    <a ng-href="{{vm.data.featuredRedirectUrl}}">
-        <img class="img-responsive img-featured" ng-src="{{vm.data.featuredVideoUrl}}">
+    <!--<div class="featured-label">FEATURED</div>-->
+    <a ng-href="{{vm.data.redirectUrl}}">
+        <img class="img-responsive img-featured padding-top-10 padding-bottom-10" ng-src="{{vm.data.imageUrl}}">
     </a>
     <div class="video-title">{{vm.data.featuredVideoTitle}}</div>
 
-    <hr class="border-color3"/>
-    <div class="section-label text-center text-color3">
-        <span>Related Games</span>
+
+    <!--
+        <hr class="border-color3"/>
+        <div class="section-label text-center text-color3">
+            <span>Description</span>
+        </div>-->
+    <div>
+        <h4 class="text-left padding-top-10">{{vm.data.title}}</h4>
+        <p class="text-justify padding-bottom-10">{{vm.data.description[lang]}}</p>
+        <div class="text-center padding-bottom-10"><a ng-href="{{vm.data.redirectUrl}}" class="btn btn-info">Play Now</a></div>
     </div>
 
-    <div class="row" ng-repeat="row in vm.rows">
+    <!--<div class="row" ng-repeat="row in vm.rows">
         <div class="col-xs-6 item" ng-repeat="item in row">
             <a href="#game-content/{{item.id}}" class="box">
                 <img class="img-responsive thumb-img" ng-src="{{item.thumb}}">
                 <div class="text-center">{{item.title}}</div>
             </a>
         </div>
-    </div>
+    </div>-->
 </div>

@@ -8,7 +8,7 @@
     /** @ngInject */
     function MainController($state, $rootScope, $http, ServerURL) {
         var vm = this;
-        vm.cateActived = 0;
+        vm.cateActived = 1;
         vm.accountName = ["حسابي", "My account"];
         vm.redrawTab = false;
 
@@ -30,15 +30,16 @@
         ];
 
         $http.get(ServerURL + 'AllCategories').then(function (response) {
-            for (var t in vm.tabs) {
-                vm.tabs[t]['categories'] = response.data[t];
-            }
+            vm.tabs[0].categories = response.data[0];   // tv
+            vm.tabs[1].categories = response.data[1];   // video
+            vm.tabs[2].categories = response.data[2];   // games
             vm.redrawTab = true;
         });
 
         vm.tabSelect = function (tabInd, tab) {
             if (tabInd == 0 || tabInd != "") {
-                var urls = ['tv-home', 'video-home', 'game-home'];
+                var urls = ['game-home', 'video-home', 'tv-home'];
+                if ($rootScope.lang == 0) urls.reverse();
                 $state.go(urls[tabInd]);
                 vm.cateActived = -1;
                 vm.selectTab = tab;
@@ -52,6 +53,7 @@
             $rootScope.lang = $rootScope.lang == 0 ? 1 : 0;
             vm.tabs.reverse();
         };
+        if ($rootScope.lang == 0) vm.tabs.reverse();
     }
 })();
 
